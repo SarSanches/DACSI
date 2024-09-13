@@ -1,0 +1,183 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry} % Configuración de márgenes y dimensiones de página
+
+\usepackage[utf8]{inputenc} % Codificación de caracteres
+\usepackage[spanish]{babel} % Configuración de idioma español
+\usepackage{amssymb} % Símbolos matemáticos adicionales
+\usepackage{subfigure} % Creación de subfiguras dentro de una figura
+\usepackage{newunicodechar} % Soporte para caracteres Unicode
+\usepackage{graphicx} % Inclusión de imágenes
+\usepackage{amsmath} % Ampliación de funcionalidades matemáticas
+\usepackage{xspace} % Control del espacio después de comandos
+\usepackage{booktabs} % Mejora la apariencia de las tablas
+\usepackage[table,xcdraw]{xcolor} % Colores personalizados para tablas
+\usepackage{url} % Inclusión y formato de enlaces URL
+\usepackage{lineno} % Numeración de líneas
+\usepackage{enumitem} % Control de listas y enumeraciones
+\usepackage{soul} % Resaltado de texto con subrayado
+\usepackage[numbers]{natbib} % Citas bibliográficas y bibliografía
+\usepackage[colorlinks=true, bookmarks=false, citecolor=blue, urlcolor=blue, linkcolor=blue, linktoc=page]{hyperref} % Creación de enlaces y referencias
+\usepackage{titlesec} % Control del formato de títulos de sección
+\usepackage{fancyhdr} % Personalización de encabezados y pies de página
+\usepackage{datetime} % Manipulación de fechas y tiempos
+% Modificar márgenes
+\geometry{left=2.5cm, right=2.5cm, top=2.0cm, bottom=2.0cm}
+% Espaciado entre líneas
+\linespread{1.5} 
+% Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+% Cambiar nombre a lista de tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+% Modificar el estilo de los capítulos
+\titleformat{\chapter}[display]
+{\color{black}\fontfamily{pcr}\LARGE\scshape\raggedleft}
+{\chaptertitlename\ \color{red}\fontsize{20}{00}\mdseries\thechapter} {-10pt} {\color{black}\rmfamily\huge}
+%\titlespacing*{\chapter}{0pt}{0pt}{50pt}
+% Diseño del encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+% Quitar espacio vertical en listas
+\setlist[itemize]{noitemsep, topsep=0pt}
+% Numerar las secciones
+\setcounter{secnumdepth}{4} % Establece la profundidad de numeración de secciones
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} % Define el formato de las subsubsubsecciones
+% Modificar la tabla de contenido
+\setcounter{tocdepth}{4}
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% AQUI INICIA EL DOCUMENTO %%%%%%%
+\begin{document}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{minipage}[c]{0.15\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/00_TECNM.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textsc{\large Tecnológico Nacional de México Campus Pabellón de Arteaga}\\[0.3cm]
+        \textsc{\large Tecnologías de la Información y Ccomunicaciones}\\[0.3cm]
+        \hrule height1pt
+        \vspace{0.1cm}
+        \hrule height2pt
+        \vspace{0.3cm}
+\end{minipage}
+
+\begin{minipage}[c]{0.15\textwidth}
+    \vspace{0.5cm}
+    \hspace{0.5cm}
+    \vrule width1pt height15cm 
+    \hspace{0.05cm}
+    \vrule width2pt height15cm
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textbf{\large Nombre del proyecto}\\[1cm]
+         \text{\Large Almacen}\\[1cm]
+        \text{\large Por}\\[1cm]
+         \text{\Large Sara del Carmen Sanches de la Rosa}\\[1cm]
+        \textit{\large Proyecto de la Materia DACSI}\\[1cm]
+        \text{\large Profesor:}\\[1cm]
+        \text{\Large Eduardo Flores Gallegos}\\[1cm]
+        
+\end{minipage}
+
+\begin{minipage}[c]{0.25\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/logo.png}
+\end{minipage}
+
+
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \mdseries{\large Pabellón de Arteaga, Aguascalientes, \the\year}
+\end{minipage}
+
+\end{titlepage}
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLA DE CONTENIDO %%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\section{Introducción}
+En el ámbito de la gestión de inventarios, la eficiencia y precisión en el manejo de productos son cruciales para el éxito de cualquier almacén. Con el objetivo de optimizar la administración de productos y garantizar una disponibilidad continua, se propone desarrollar un sistema integral de alta, baja y cambios de productos. Este sistema está diseñado para proporcionar una gestión eficiente del inventario, facilitando el registro y seguimiento de productos mediante una serie de funcionalidades clave.
+
+\subsection{Objetivos}
+\begin{enumerate}
+    \item \textbf{Gestion de Altas ,Bajas y Cambios:}
+     Implementar funcionalidades que permitan realizar altas (ingresos de nuevos productos), bajas (retiro de productos) y cambios (modificaciones en el inventario) de manera eficiente y con registro automático en el sistema.
+      \item \textbf{Organización y Clasificación de Productos:}
+    Desarrollar un sistema que permita la clasificación y ordenamiento de productos por categorías, ubicaciones, y otros criterios relevantes, facilitando la gestión y localización de los artículos dentro del almacén.
+
+      \item \textbf{Registro Histórico de Movimientos:}
+    Crear un módulo que lleve un historial detallado de todas las transacciones de alta, baja y cambios, permitiendo un seguimiento exhaustivo del ciclo de vida de cada producto y facilitando auditorías y análisis.
+
+     \item \textbf{Notificaciones de Reabastecimiento:}
+   Configurar alertas automáticas que se activen cuando los productos alcancen niveles mínimos de stock, informando a los responsables para que realicen las acciones de reabastecimiento necesarias de manera oportuna.
+
+    \item \textbf{Control de Accesos y Seguridad:}
+    Asegurar que el sistema tenga niveles de acceso diferenciados según roles, permitiendo que sólo personal autorizado pueda realizar altas, bajas y cambios, mientras que otros usuarios puedan consultar la información según sus permisos.
+
+    \item \textbf{Interfaz Intuitiva y Accesible:}
+    Desarrollar una interfaz de usuario que sea fácil de usar y accesible desde diferentes dispositivos, permitiendo a los empleados del almacén y otros usuarios realizar sus tareas de manera eficiente y sin complicaciones.
+
+
+\end{enumerate}
+
+\subsubsection{Objetivo general}
+Desarrollar un sistema de alta, baja y cambios de productos en un almacén, que permita una gestión eficiente del inventario, incluyendo la organización de productos, registro histórico de movimientos, y notificaciones automáticas para asegurar la disponibilidad óptima de stock.
+
+\subsubsection{Resumen de la entrevista}
+\begin{enumerate}
+\item \textbf{¿Qué hará el sistema?}
+    Llevar un registro y control de los inventarios con alerta de mínimos, asi como tambien de los mantenimientos de las instalaciones, y programación de tareas 
+    
+\item \textbf{¿Cuál es el tamaño actual de su inventario y cuántos productos manejan en promedio?}
+Un aproximado de 1000 productos, y un tamaño de almacén de 30m2
+
+\item \textbf{¿Qué tipo de productos se gestionan en el almacén (por ejemplo, alimentos, productos electrónicos, etc.)?}
+Papelería, material eléctrico, material electrónico, herramientas, insumos de ferretería, material de limpieza, insumos de cafetería, equipos de cómputo, garrafones de agua.
+
+\item \textbf{¿Cuántos usuarios estarán interactuando con el sistema y cuáles son sus roles?}
+3 usuarios (jefa de compras, jefe de mantenimiento, jefe del departamento de recursos materiales )
+
+\item \textbf{¿Cómo se realizan actualmente las altas, bajas y cambios de productos?}
+No tienen ningún sistema implementado, actualmente se hace por medio de observación y conteo manual 
+
+\item \textbf{¿Qué información debe incluirse al registrar un nuevo producto en el sistema?}
+Cantidad / Unidad
+Fecha de ingreso
+Descripción
+Precio sin IVA
+existencia suficiente, Mínimo  Nivel crítico.
+
+\item \textbf{¿Qué niveles de stock (productos que quedan en el almacén) consideran críticos para activar una notificación de reabastecimiento?}
+Dependiendo del artículo, por lo general 5 piezas
+
+\item \textbf{¿Cómo desean recibir las alertas de reabastecimiento (por ejemplo, correo electrónico, mensajes en el sistema)?}
+Resaltado en amarillo y rojo dentro del Listado, ventanas emergentes, y correo electrónico
+
+\item \textbf{¿Qué roles y permisos deben configurarse en el sistema (por ejemplo, administrador, gestor de inventario, personal de ventas)?}
+Administrador, compras y mantenimiento
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
